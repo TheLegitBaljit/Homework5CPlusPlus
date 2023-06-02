@@ -1,5 +1,6 @@
 #include <iostream>
 #include "sources/MagicalContainer.hpp"
+
 using namespace ariel;
 int main() {
     // Create a MagicalContainer and add some elements
@@ -25,7 +26,7 @@ int main() {
     std::cout << "Elements in cross order:\n";
     MagicalContainer::SideCrossIterator crossIter(container);
     for (auto it = crossIter.begin(); it != crossIter.end(); ++it) {
-        std::cout << *it << ' ';  // 2 25 3 17 9
+//        std::cout << *it << ' ';  // 2 25 3 17 9
     }
     std::cout << std::endl;
 

@@ -1,32 +1,37 @@
-#pragma once
+#pragma one
 #include "iostream"
 #include "vector"
 #include "algorithm"
-namespace ariel
-{
+namespace ariel{}
 
-}
+
+
 class MagicalContainer {
 public:
+
     std::vector<int> container;
-    std::vector<int> ordered;
+    std::vector<int*> primes;
 
     MagicalContainer(){}
-
+    ~MagicalContainer(){for (int* ptr : primes) delete ptr;}
     void addElement(int num);
     void removeElement(int num);
     size_t size() const;
+    bool isPrime(int n );
+
 
     class AscendingIterator{
     public:
 
-        MagicalContainer &container;
+        MagicalContainer *container;
         size_t index;
+
 
         AscendingIterator(MagicalContainer& container);
         AscendingIterator(MagicalContainer& container, size_t index);
         AscendingIterator(const AscendingIterator& other);
         ~AscendingIterator(){}
+
 
         AscendingIterator begin() const;
         AscendingIterator end() const;
@@ -43,7 +48,7 @@ public:
     class PrimeIterator{
     public:
 
-        MagicalContainer &container;
+        MagicalContainer *container;
         size_t index;
 
         PrimeIterator(MagicalContainer& container) ;
@@ -65,8 +70,9 @@ public:
     class SideCrossIterator{
     public:
 
-        MagicalContainer &container;
+        MagicalContainer *container;
         size_t index;
+        size_t i;
 
         SideCrossIterator(MagicalContainer& container);
         SideCrossIterator(MagicalContainer& container, size_t index);
